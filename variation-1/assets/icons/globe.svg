@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130" width="130" height="130" role="img" aria-label="Globe">
+  <circle cx="70" cy="60" r="34" fill="#7fa17a"/>
+  <path d="M46 46 q24 -12 48 0 M44 76 q26 12 52 0 M70 26 v68 M36 60 h68" stroke="#fdf8f0" stroke-width="1.8" opacity="0.6" fill="none"/>
+  <path d="M56 32 c12 12 12 44 0 56 M84 32 c-12 12 -12 44 0 56" stroke="#fdf8f0" stroke-width="1.8" opacity="0.45" fill="none"/>
+</svg>

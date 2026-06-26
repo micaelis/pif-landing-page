@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="150" height="150" role="img" aria-label="Potted plant">
+  <path d="M40 150 C10 110 12 70 36 48 C40 84 44 116 48 150 Z" fill="#5d7d59"/>
+  <path d="M48 150 C58 100 96 80 124 92 C90 108 64 126 52 150 Z" fill="#7fa17a"/>
+  <rect x="22" y="120" width="60" height="36" rx="8" fill="#cf6a50"/>
+  <rect x="22" y="120" width="60" height="11" rx="5" fill="#e07a5f"/>
+</svg>

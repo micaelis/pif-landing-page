@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 182" width="122" height="182" role="img" aria-label="Book cover not available">
+  <rect width="122" height="182" rx="6" fill="#ececec"/>
+  <rect x="0" y="0" width="5" height="182" rx="2" fill="#d8d2c8"/>
+  <g fill="none" stroke="#bdb6ab" stroke-width="2.5">
+    <rect x="34" y="52" width="54" height="64" rx="4"/>
+    <path d="M34 98l18-18 14 14 10-10 12 12"/>
+  </g>
+  <circle cx="51" cy="70" r="6" fill="#bdb6ab"/>
+  <text x="61" y="140" text-anchor="middle" font-family="Nunito Sans, sans-serif" font-size="9" letter-spacing="0.5" fill="#9a948c" font-weight="700">COVER NOT</text>
+  <text x="61" y="153" text-anchor="middle" font-family="Nunito Sans, sans-serif" font-size="9" letter-spacing="0.5" fill="#9a948c" font-weight="700">AVAILABLE</text>
+</svg>

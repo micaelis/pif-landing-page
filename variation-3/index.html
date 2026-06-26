@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page It Forward — A reader-to-reader book exchange</title>
+  <meta name="description" content="Share a book you love, earn a credit, and request any title from a community library of readers — sent to your door." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <img src="assets/icons/logo.svg" alt="" width="30" height="30" />
+        <span class="logo-text">Page It Forward</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#library">The library</a>
+        <a href="#join">Join</a>
+        <a class="btn btn--coral" href="#join">Get your first credit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO — COZY CREAM ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="eyebrow"><span class="tick"></span> A reader-to-reader book exchange</span>
+          <h1 class="hero__title" id="hero-title">Your next favorite book is already on <em>someone's shelf.</em></h1>
+          <p class="hero__lead">Page It Forward connects print-loving readers across the country. Share a book you've finished, earn a credit, and request any title in the community library — no cost but the joy of passing it on.</p>
+          <div class="cta-group">
+            <a class="btn btn--navy" href="#join">Join the community <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost" href="#library">Peek at the shelves</a>
+          </div>
+          <div class="stat-row">
+            <div class="stat-avatars" aria-hidden="true">
+              <span style="background:#e07a5f">DT</span>
+              <span style="background:#7fa17a">YK</span>
+              <span style="background:#e9a39c">DD</span>
+              <span style="background:#e6b45a">KR</span>
+            </div>
+            <span class="stat-text"><b>1,200+ readers</b> sharing <b>8,400 books</b></span>
+          </div>
+          <p class="hero__trial">
+            <span class="trial-badge"><span class="star" aria-hidden="true">&#10038;</span> Free for 30 days &middot; Cancel anytime</span>
+          </p>
+        </div>
+
+        <div class="hero__art">
+          <img src="assets/images/hero-shelf.svg" alt="A cozy illustrated reading shelf with books, a plant, a globe and a flamingo" width="460" height="440" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span class="tick"></span> How it works</span>
+          <h2 id="how-title">Three steps, and the library is yours</h2>
+          <p>No fees, no haggling. Just readers keeping good books in motion.</p>
+        </div>
+        <div class="steps">
+          <article class="step" data-reveal>
+            <span class="step__num">1</span>
+            <img class="step__icon" src="assets/icons/step-share.svg" alt="" />
+            <h3>Share a book</h3>
+            <p>Pick a book you've finished and loved, list it on your shelf, and pop it in the mail to another member.</p>
+          </article>
+          <article class="step" data-reveal>
+            <span class="step__num">2</span>
+            <img class="step__icon" src="assets/icons/step-credit.svg" alt="" />
+            <h3>Earn a credit</h3>
+            <p>Every book you send forward earns you one credit — your ticket to the whole community library.</p>
+          </article>
+          <article class="step" data-reveal>
+            <span class="step__num">3</span>
+            <img class="step__icon" src="assets/icons/step-request.svg" alt="" />
+            <h3>Request any book</h3>
+            <p>Spend your credit on any title in the library. It's mailed to your door by the reader who shared it.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIBRARY ============ -->
+    <section class="library" id="library" aria-labelledby="library-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow"><span class="tick"></span> The public library</span>
+          <h2 id="library-title">Browse what real members are sharing right now</h2>
+          <p>These shelves are live. Every cover below belongs to a reader somewhere — waiting to be passed along to whoever wants it next.</p>
+        </div>
+
+        <!-- Shelf 1 -->
+        <article class="shelf" data-reveal>
+          <div class="shelf__head">
+            <div class="shelf__owner">
+              <span class="avatar" style="background:#e07a5f">DT</span>
+              <h3>Daniela's Shelf <span class="save" aria-hidden="true">&#128278;</span></h3>
+            </div>
+            <a class="see-full" href="#">See Full Shelf <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <div class="shelf__row">
+            <div class="cover" style="background:linear-gradient(160deg,#2c2a2e,#444)"><span class="cover__title">The Vinyl Sessions</span><span class="cover__author">V. Marlowe</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#3aa6c8,#2b7fa0)"><span class="cover__title">De Ce Nu Faci Zebrele</span><span class="cover__author">A. Pop</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#e07a5f,#b94f3a)"><span class="cover__title">The Red Room</span><span class="cover__author">L. Ito</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#f4ede1,#ddd0bb);color:#2c2a2e"><span class="cover__title">The Laws of Human Nature</span><span class="cover__author" style="color:#6a6560">Robert Greene</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#cdd9e0,#9fb3bf);color:#2c2a2e"><span class="cover__title">A Field Guide to Drawing Birds</span><span class="cover__author" style="color:#6a6560">M. Lane</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#7fa17a,#5d7d59)"><span class="cover__title">The Orchard Year</span><span class="cover__author">N. Bell</span></div>
+          </div>
+          <div class="shelf__base"></div>
+        </article>
+
+        <!-- Shelf 2 -->
+        <article class="shelf" data-reveal>
+          <div class="shelf__head">
+            <div class="shelf__owner">
+              <span class="avatar" style="background:#25395c">DD</span>
+              <h3>DannyDan's Shelf <span class="save" aria-hidden="true">&#128278;</span></h3>
+            </div>
+            <a class="see-full" href="#">See Full Shelf <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <div class="shelf__row">
+            <div class="cover" style="background:linear-gradient(160deg,#f4ede1,#e3d8c4);color:#2c2a2e"><span class="cover__title">Dance Dance Dance</span><span class="cover__author" style="color:#6a6560">Haruki Murakami</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#e94f8a,#f0a94f)"><span class="cover__title">The Wind-Up Bird</span><span class="cover__author">Haruki Murakami</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#f4d03f,#e6b45a);color:#2c2a2e"><span class="cover__title">Men Without Women</span><span class="cover__author" style="color:#2c2a2e">Haruki Murakami</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#2b426b,#e07a5f)"><span class="cover__title">South of the Border</span><span class="cover__author">Haruki Murakami</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#3f7d6e,#2b5a6b)"><span class="cover__title">Colorless Tsukuru Tazaki</span><span class="cover__author">Haruki Murakami</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#e9a39c,#e07a5f)"><span class="cover__title">Kafka on the Shore</span><span class="cover__author">Haruki Murakami</span></div>
+          </div>
+          <div class="shelf__base"></div>
+        </article>
+
+        <!-- Shelf 3 -->
+        <article class="shelf" data-reveal>
+          <div class="shelf__head">
+            <div class="shelf__owner">
+              <span class="avatar" style="background:#e6b45a">KR</span>
+              <h3>Kristina's Shelf <span class="save" aria-hidden="true">&#128278;</span></h3>
+            </div>
+            <a class="see-full" href="#">See Full Shelf <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <div class="shelf__row">
+            <div class="cover" style="background:linear-gradient(160deg,#1a2942,#3aa6c8)"><span class="cover__title">1984</span><span class="cover__author">George Orwell</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#f4ede1,#e8dcc6);color:#2c2a2e"><span class="cover__title">Atomic Habits</span><span class="cover__author" style="color:#e07a5f">James Clear</span></div>
+            <div class="cover cover--na"><img src="assets/images/cover-placeholder.svg" alt="Book cover not available" /></div>
+            <div class="cover cover--na"><img src="assets/images/cover-placeholder.svg" alt="Book cover not available" /></div>
+            <div class="cover" style="background:linear-gradient(160deg,#7fa17a,#5d7d59)"><span class="cover__title">The Salt Path</span><span class="cover__author">R. Winn</span></div>
+            <div class="cover cover--na"><img src="assets/images/cover-placeholder.svg" alt="Book cover not available" /></div>
+          </div>
+          <div class="shelf__base"></div>
+        </article>
+
+        <!-- Shelf 4 -->
+        <article class="shelf" data-reveal>
+          <div class="shelf__head">
+            <div class="shelf__owner">
+              <span class="avatar" style="background:#7fa17a">YK</span>
+              <h3>Yo's Shelf <span class="save" aria-hidden="true">&#128278;</span></h3>
+            </div>
+            <a class="see-full" href="#">See Full Shelf <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <div class="shelf__row">
+            <div class="cover" style="background:linear-gradient(160deg,#ec5f6a,#c23c46)"><span class="cover__title">Norwegian Wood</span><span class="cover__author">Haruki Murakami</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#2c2a2e,#52504a)"><span class="cover__title">Ninth House</span><span class="cover__author">Leigh Bardugo</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#e07a5f,#e6b45a)"><span class="cover__title">The House on Mango Street</span><span class="cover__author">Sandra Cisneros</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#3a2b52,#6a4f8f)"><span class="cover__title">Fourth Wing</span><span class="cover__author">Rebecca Yarros</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#cfd8c0,#9bae84);color:#2c2a2e"><span class="cover__title">Little House in the Big Woods</span><span class="cover__author" style="color:#5d7d59">L. I. Wilder</span></div>
+            <div class="cover" style="background:linear-gradient(160deg,#e9a39c,#cf6a50)"><span class="cover__title">The Elephant Vanishes</span><span class="cover__author">Haruki Murakami</span></div>
+          </div>
+          <div class="shelf__base"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER CTA ============ -->
+    <section class="footer-cta" id="join" aria-labelledby="join-title">
+      <div class="container">
+        <div class="cta-card" data-reveal>
+          <img class="cta-card__deco cta-card__deco--l" src="assets/icons/plant.svg" alt="" />
+          <img class="cta-card__deco cta-card__deco--r" src="assets/icons/globe.svg" alt="" />
+          <span class="eyebrow"><span class="tick"></span> Like what you see?</span>
+          <h2 id="join-title">Join Page It Forward and start your own shelf</h2>
+          <p>Your first credit is on us. Upload a single book today and request your next great read from a fellow reader.</p>
+          <div class="cta-group">
+            <a class="btn btn--coral" href="#">Get your first credit <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a class="btn btn--ghost on-navy" href="#library">Keep browsing</a>
+          </div>
+          <p class="trial-line">
+            <span class="trial-badge"><span class="star" aria-hidden="true">&#10038;</span> Free for 30 days &middot; Cancel anytime</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ SITE FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/icons/logo.svg" alt="" width="24" height="24" />
+        <span class="logo-text">Page It Forward</span>
+      </div>
+      Simple. Sustainable. Social. &mdash; &copy; 2026 Page It Forward
+    </div>
+  </footer>
+
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>

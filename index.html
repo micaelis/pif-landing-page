@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page It Forward — Landing page concepts</title>
+  <meta name="description" content="Three hero directions for the Page It Forward landing page. Pick one to preview the full page." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1a2942;
+      --navy-deep: #131f33;
+      --navy-soft: #25395c;
+      --navy-line: #34496e;
+      --cream: #f9f1e6;
+      --cream-light: #fdf8f0;
+      --cream-card: #fbf4ea;
+      --coral: #e07a5f;
+      --coral-deep: #cf6a50;
+      --coral-soft: #ec9a85;
+      --gold: #e6b45a;
+      --ink-soft: #6a6560;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--cream-light);
+      background:
+        radial-gradient(90% 70% at 50% 0%, #26406a 0%, rgba(38,64,106,0) 55%),
+        var(--navy);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.1; margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    .brand { display: flex; align-items: center; gap: 11px; padding: 28px 0 0; }
+    .brand img { width: 30px; height: 30px; }
+    .brand span {
+      font-family: var(--serif); font-weight: 600; letter-spacing: 3px;
+      font-size: 0.95rem; text-transform: uppercase; color: var(--cream-light);
+    }
+
+    .intro { padding: 48px 0 40px; max-width: 640px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-weight: 700; font-size: 0.82rem; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--coral-soft); margin-bottom: 18px;
+    }
+    .eyebrow .tick { width: 22px; height: 1.5px; background: var(--coral); border-radius: 2px; }
+    .intro h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); letter-spacing: -0.5px; }
+    .intro h1 em { font-style: italic; color: var(--coral-soft); font-weight: 500; }
+    .intro p { color: rgba(249,241,230,.76); font-size: 1.12rem; margin-top: 18px; }
+
+    .grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      padding-bottom: 64px;
+    }
+    .card {
+      display: flex; flex-direction: column;
+      background: var(--cream-card); color: var(--navy);
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 24px 50px -28px rgba(0,0,0,.6);
+      transition: transform .18s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 34px 60px -30px rgba(0,0,0,.7); }
+
+    .preview {
+      height: 188px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .preview--navy { background: radial-gradient(90% 80% at 70% 10%, #2b446e, #1a2942); }
+    .preview--cream { background: radial-gradient(90% 80% at 70% 10%, #fdf8f0, #f3e7d6); }
+    .preview img { width: 76%; height: auto; }
+
+    /* variation-2 mini marquee of book spines */
+    .spines { display: flex; align-items: flex-end; gap: 7px; padding-bottom: 22px; }
+    .spines i { display: block; width: 26px; border-radius: 3px 3px 1px 1px; }
+    .preview .shelfline {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 8px;
+      background: linear-gradient(#c9a06a, #a87f4d);
+    }
+
+    .card-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+      font-weight: 800; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--coral-deep); background: rgba(224,122,95,.12);
+      border: 1px solid rgba(224,122,95,.3); padding: 5px 12px; border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .card h3 { font-size: 1.4rem; }
+    .card p { color: var(--ink-soft); font-size: 0.98rem; margin: 8px 0 22px; flex: 1; }
+    .view {
+      display: inline-flex; align-items: center; gap: 9px; align-self: flex-start;
+      font-weight: 700; font-size: 0.98rem; color: #fff; background: var(--coral);
+      padding: 12px 22px; border-radius: 999px;
+      box-shadow: 0 12px 22px -12px rgba(224,122,95,.85);
+      transition: background .2s ease, gap .2s ease;
+    }
+    .card:hover .view { background: var(--coral-deep); gap: 13px; }
+
+    footer {
+      border-top: 1px solid var(--navy-line);
+      padding: 26px 0 40px; color: rgba(249,241,230,.5); font-size: 0.9rem;
+    }
+    footer code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(255,255,255,.06); padding: 2px 7px; border-radius: 6px;
+      color: var(--cream-light);
+    }
+
+    @media (max-width: 820px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="brand" href="#">
+      <img src="variation-1/assets/icons/logo.svg" alt="" width="30" height="30" />
+      <span>Page It Forward</span>
+    </a>
+
+    <header class="intro">
+      <span class="eyebrow"><span class="tick"></span> Landing page concepts</span>
+      <h1>Three hero directions, <em>one page to choose from.</em></h1>
+      <p>Each version shares the same How-It-Works, live library, and footer CTA — only the hero changes. Open any one to preview the full landing page.</p>
+    </header>
+
+    <main class="grid">
+      <!-- Variation 1 -->
+      <a class="card" href="variation-1/">
+        <div class="preview preview--navy">
+          <img src="variation-1/assets/images/hero-stack.svg" alt="Editorial Split hero preview" />
+        </div>
+        <div class="card-body">
+          <span class="badge">Variation 1</span>
+          <h3>Editorial Split</h3>
+          <p>Navy, headline on the left with an illustrated book stack on the right and a shelf peek along the bottom. Clearest at-a-glance read.</p>
+          <span class="view">View this version &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Variation 2 -->
+      <a class="card" href="variation-2/">
+        <div class="preview preview--navy">
+          <div class="spines" aria-hidden="true">
+            <i style="height:78px;background:linear-gradient(#e07a5f,#cf6a50)"></i>
+            <i style="height:104px;background:linear-gradient(#25395c,#34496e)"></i>
+            <i style="height:88px;background:linear-gradient(#7fa17a,#5d7d59)"></i>
+            <i style="height:112px;background:linear-gradient(#e6b45a,#cf6a50)"></i>
+            <i style="height:84px;background:linear-gradient(#e9a39c,#e07a5f)"></i>
+            <i style="height:100px;background:linear-gradient(#2b426b,#1a2942)"></i>
+            <i style="height:92px;background:linear-gradient(#f1c2bc,#e9a39c)"></i>
+          </div>
+          <div class="shelfline"></div>
+        </div>
+        <div class="card-body">
+          <span class="badge">Variation 2</span>
+          <h3>Centered Marquee</h3>
+          <p>Navy, a centered headline above a slow-scrolling shelf of live book covers. Leads with the living-library feeling.</p>
+          <span class="view">View this version &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Variation 3 -->
+      <a class="card" href="variation-3/">
+        <div class="preview preview--cream">
+          <img src="variation-3/assets/images/hero-shelf.svg" alt="Cozy Cream hero preview" />
+        </div>
+        <div class="card-body">
+          <span class="badge">Variation 3</span>
+          <h3>Cozy Cream</h3>
+          <p>A warm cream hero with a navy serif headline and an illustrated shelf scene. The most indie-bookstore in tone.</p>
+          <span class="view">View this version &rarr;</span>
+        </div>
+      </a>
+    </main>
+
+    <footer>
+      Static prototype &middot; pick a direction, then the other two <code>variation-*</code> folders can be removed.
+    </footer>
+  </div>
+</body>
+</html>

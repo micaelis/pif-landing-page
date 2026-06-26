@@ -1,0 +1,567 @@
+/* =============================================================
+   PAGE IT FORWARD — Landing Page
+   Variation 1 · "Editorial Split" hero (navy, two-column)
+
+   Table of contents
+   01. Design tokens (:root)
+   02. Base & reset
+   03. Layout helpers
+   04. Buttons
+   05. Header / nav
+   06. Shared UI (eyebrow, trial badge, stats, scroll-reveal)
+   07. Hero — Editorial Split
+   08. How It Works
+   09. Library
+   10. Footer CTA
+   11. Site footer
+   12. Responsive
+   ============================================================= */
+
+
+/* 01. DESIGN TOKENS ------------------------------------------ */
+:root {
+  /* Brand colors */
+  --color-navy:        #1a2942;
+  --color-navy-deep:   #131f33;
+  --color-navy-soft:   #25395c;
+  --color-navy-line:   #34496e;
+  --color-cream:       #f9f1e6;
+  --color-cream-light: #fdf8f0;
+  --color-cream-card:  #fbf4ea;
+  --color-coral:       #e07a5f; /* primary accent */
+  --color-coral-deep:  #cf6a50;
+  --color-coral-soft:  #ec9a85;
+  --color-pink:        #e9a39c;
+  --color-pink-soft:   #f1c2bc;
+  --color-ink:         #2c2a2e; /* text on cream */
+  --color-ink-soft:    #6a6560;
+
+  /* Supporting illustration colors */
+  --color-gold:        #e6b45a;
+  --color-leaf:        #7fa17a;
+  --color-leaf-deep:   #5d7d59;
+  --color-wood:        #c9a06a;
+  --color-wood-deep:   #a87f4d;
+
+  /* Typography */
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans:  "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+
+  /* Radii */
+  --radius:    18px;
+  --radius-lg: 28px;
+  --radius-xl: 34px;
+
+  /* Shadows */
+  --shadow-card: 0 18px 40px -22px rgba(19, 31, 51, 0.55);
+  --shadow-soft: 0 10px 30px -16px rgba(19, 31, 51, 0.35);
+
+  /* Layout */
+  --container-max: 1180px;
+
+  /* Breakpoints (for reference — media queries can't read custom
+     properties, so the values below are mirrored in section 12) */
+  --bp-tablet: 900px;
+  --bp-mobile: 600px;
+}
+
+
+/* 02. BASE & RESET ------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0;
+}
+
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+
+/* 03. LAYOUT HELPERS ----------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-6);
+}
+.section-head h2 { font-size: clamp(2rem, 3.6vw, 2.9rem); }
+.section-head p {
+  color: var(--color-ink-soft);
+  font-size: 1.1rem;
+  margin-top: var(--space-2);
+}
+
+
+/* 04. BUTTONS ------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.1px;
+  padding: 16px 30px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn--coral {
+  background: var(--color-coral);
+  color: #fff;
+  box-shadow: 0 14px 26px -12px rgba(224, 122, 95, 0.85);
+}
+.btn--coral:hover { background: var(--color-coral-deep); }
+
+.btn--navy {
+  background: var(--color-navy);
+  color: var(--color-cream-light);
+  box-shadow: 0 14px 26px -12px rgba(19, 31, 51, 0.6);
+}
+.btn--navy:hover { background: var(--color-navy-deep); }
+
+.btn--ghost {
+  background: transparent;
+  color: inherit;
+  border: 1.5px solid currentColor;
+  padding: 15px 28px;
+}
+.btn--ghost.on-navy { color: var(--color-cream); opacity: 0.92; }
+.btn--ghost:hover { background: rgba(255, 255, 255, 0.08); }
+
+.btn .arrow { transition: transform 0.2s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+
+/* 05. HEADER / NAV ------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(26, 41, 66, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.site-header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.brand { display: flex; align-items: center; gap: 11px; }
+.brand img { width: 30px; height: 30px; }
+.brand .logo-text {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  color: var(--color-cream-light);
+}
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a {
+  color: rgba(249, 241, 230, 0.82);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links .btn { padding: 11px 22px; font-size: 0.92rem; }
+
+
+/* 06. SHARED UI ---------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.eyebrow .tick {
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-coral);
+  border-radius: 2px;
+}
+
+.trial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: rgba(230, 180, 90, 0.16);
+  border: 1px solid rgba(230, 180, 90, 0.45);
+  color: var(--color-gold);
+}
+.trial-badge .star { color: var(--color-gold); }
+
+.stat-row { display: flex; align-items: center; gap: 14px; }
+.stat-avatars { display: flex; }
+.stat-avatars span {
+  width: 34px;
+  height: 34px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+.stat-avatars span:first-child { margin-left: 0; }
+.stat-text b { font-weight: 800; }
+
+.cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Scroll-reveal (only active when JS adds .js to <html>) */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+
+/* 07. HERO — EDITORIAL SPLIT --------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: var(--color-cream-light);
+  background:
+    radial-gradient(120% 90% at 100% 0%, #243a5e 0%, rgba(36, 58, 94, 0) 55%),
+    radial-gradient(90% 70% at 0% 100%, #1f3050 0%, rgba(31, 48, 80, 0) 60%),
+    var(--color-navy);
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-5);
+  align-items: center;
+  min-height: 82vh;
+  padding: var(--space-7) 0 130px;
+}
+.hero .eyebrow { color: var(--color-coral-soft); }
+.hero__title {
+  font-size: clamp(2.6rem, 5vw, 4.1rem);
+  letter-spacing: -0.5px;
+  margin-top: var(--space-3);
+}
+.hero__title em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-coral-soft);
+}
+.hero__lead {
+  font-size: 1.18rem;
+  color: rgba(249, 241, 230, 0.78);
+  max-width: 30em;
+  margin: var(--space-3) 0 var(--space-4);
+}
+.hero .cta-group { margin-bottom: var(--space-4); }
+.hero__trial { margin-top: var(--space-4); }
+.hero__art { position: relative; }
+.hero__art img { width: 100%; height: auto; }
+
+/* Shelf "peek" bleeding up from the bottom of the hero */
+.shelf-peek {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 60%);
+          mask-image: linear-gradient(to bottom, transparent, #000 60%);
+}
+.shelf-peek span {
+  flex: none;
+  width: 86px;
+  height: 120px;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 -8px 24px -10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* 08. HOW IT WORKS ------------------------------------------- */
+.how {
+  background: var(--color-cream);
+  padding: var(--space-7) 0;
+}
+.how .section-head .eyebrow,
+.how .section-head h2 { justify-content: center; }
+.how .section-head .eyebrow { color: var(--color-coral-deep); margin-bottom: var(--space-2); }
+.how .section-head h2 { color: var(--color-navy); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+.step {
+  position: relative;
+  background: var(--color-cream-card);
+  border: 1px solid rgba(224, 122, 95, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px 32px;
+  box-shadow: var(--shadow-soft);
+}
+.step__num {
+  position: absolute;
+  top: -18px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-coral);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px -8px rgba(224, 122, 95, 0.9);
+}
+.step__icon { width: 64px; height: 64px; margin: 8px 0 18px; }
+.step h3 { font-size: 1.4rem; color: var(--color-navy); margin-bottom: 10px; }
+.step p { color: var(--color-ink-soft); font-size: 1.02rem; }
+
+
+/* 09. LIBRARY ------------------------------------------------ */
+.library {
+  background: var(--color-navy);
+  color: var(--color-cream-light);
+  padding: var(--space-7) 0;
+}
+.library .section-head .eyebrow { color: var(--color-coral-soft); }
+.library .section-head h2 { color: var(--color-cream-light); }
+.library .section-head p { color: rgba(249, 241, 230, 0.72); }
+
+.shelf {
+  background: var(--color-cream-card);
+  color: var(--color-ink);
+  border-radius: var(--radius-lg);
+  padding: 26px 28px 30px;
+  margin-bottom: 26px;
+  box-shadow: var(--shadow-card);
+}
+.shelf__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.shelf__owner { display: flex; align-items: center; gap: 13px; }
+.shelf__owner .avatar {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+}
+.shelf__owner h3 { font-size: 1.3rem; color: var(--color-navy); }
+.shelf__owner .save { color: var(--color-ink-soft); margin-left: 4px; }
+.see-full {
+  color: var(--color-coral-deep);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.see-full:hover { gap: 11px; }
+
+.shelf__row {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 4px 2px 22px;
+  scroll-snap-type: x proximity;
+}
+.shelf__row::-webkit-scrollbar { height: 8px; }
+.shelf__row::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.14); border-radius: 8px; }
+.shelf__row::-webkit-scrollbar-track { background: transparent; }
+.shelf__base {
+  height: 12px;
+  margin-top: -14px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(var(--color-wood), var(--color-wood-deep));
+  box-shadow: 0 10px 16px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* Book cover — CSS placeholder standing in for member-uploaded
+   cover images (these come from live data in production). */
+.cover {
+  flex: none;
+  width: 122px;
+  height: 182px;
+  border-radius: 4px 7px 7px 4px;
+  border-left: 4px solid rgba(0, 0, 0, 0.18);
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 12px 22px -12px rgba(19, 31, 51, 0.6);
+}
+.cover::after { /* page edge highlight */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+}
+.cover__title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.12;
+}
+.cover__author {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+.cover--na {
+  padding: 0;
+  border-left: none;
+  width: 122px;
+  height: 182px;
+}
+.cover--na::after { display: none; }
+.cover--na img { width: 100%; height: 100%; }
+
+
+/* 10. FOOTER CTA --------------------------------------------- */
+.footer-cta {
+  background: var(--color-cream);
+  padding: var(--space-7) 0;
+}
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 70px 60px;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(120% 140% at 100% 0%, #2b426b 0%, rgba(43, 66, 107, 0) 55%),
+    var(--color-navy);
+  box-shadow: 0 40px 70px -40px rgba(19, 31, 51, 0.7);
+}
+.cta-card .eyebrow { color: var(--color-coral-soft); justify-content: center; margin-bottom: var(--space-2); }
+.cta-card h2 { color: var(--color-cream-light); font-size: clamp(2rem, 4vw, 3.1rem); }
+.cta-card p {
+  color: rgba(249, 241, 230, 0.78);
+  font-size: 1.15rem;
+  margin: 18px auto 30px;
+  max-width: 34em;
+}
+.cta-card .cta-group { justify-content: center; }
+.cta-card .trial-line { margin-top: var(--space-3); display: flex; justify-content: center; }
+.cta-card__deco { position: absolute; opacity: 0.9; pointer-events: none; }
+.cta-card__deco--l { left: -10px; bottom: -10px; width: 150px; }
+.cta-card__deco--r { right: -6px; top: -6px; width: 130px; transform: scaleX(-1); }
+
+
+/* 11. SITE FOOTER -------------------------------------------- */
+.site-footer {
+  background: var(--color-navy-deep);
+  color: rgba(249, 241, 230, 0.6);
+  padding: 38px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.site-footer .brand { justify-content: center; margin-bottom: 12px; }
+.site-footer .brand img { width: 24px; height: 24px; }
+.site-footer .logo-text { font-size: 0.85rem; }
+
+
+/* 12. RESPONSIVE --------------------------------------------- */
+/* Tablet and below — var(--bp-tablet): 900px */
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    min-height: auto;
+    padding: var(--space-6) 0 110px;
+  }
+  .hero__art { max-width: 460px; }
+  .steps { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .cta-card { padding: 48px 26px; }
+}
+
+/* Mobile — var(--bp-mobile): 600px */
+@media (max-width: 600px) {
+  .container { padding: 0 var(--space-3); }
+  .shelf { padding: 20px 18px 24px; }
+}
