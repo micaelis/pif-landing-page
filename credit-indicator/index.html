@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script>window.__resources = {};</script>
 <title>Page It Forward · Credits Display Proposal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>/**
@@ -1876,7 +1877,7 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
       resolveExternalError: (url, name) => external.getError(url, name),
       pseudoClass
     };
-    function ensureFetched(name) {
+    function ensureFetched(name) { return; /* standalone single-file build: all components are inline; sibling fetch disabled (it re-parses this document and clobbers the render) */
       const r = registry.get(name);
       if (r.fetched) return;
       r.fetched = true;
